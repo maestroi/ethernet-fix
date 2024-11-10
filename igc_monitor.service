@@ -1,0 +1,13 @@
+[Unit]
+Description=Monitor igc driver and reset on crash
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/monitor_igc.sh
+Restart=on-failure
+RestartSec=5
+SyslogIdentifier=igc_monitor
+
+[Install]
+WantedBy=multi-user.target
